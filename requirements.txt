@@ -145,7 +145,6 @@ python-dotenv==1.1.1
 python-json-logger==3.3.0
 python-multipart==0.0.20
 pytz==2025.2
-pywin32
 pywin32-ctypes==0.2.3
 pywinpty==2.0.15
 PyYAML==6.0.2
@@ -208,4 +207,5 @@ websockets==15.0.1
 whitenoise==6.9.0
 xxhash==3.5.0
 yarl==1.20.1
+
 
