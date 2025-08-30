@@ -1,0 +1,75 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <title>Add Expense</title>
+</head>
+<body class="bg-[#c9c3b0]  
+      text-white
+      min-h-screen
+      flex
+      flex-col  flex items-center justify-center min-h-screen">
+  <div class="bg-white shadow-lg rounded-2xl p-8 w-full max-w-md">
+    <h2 class="text-2xl font-bold text-gray-800 mb-6 text-center">Add Expense</h2>
+
+    <form method="POST" class="space-y-4">
+      {% csrf_token %}
+      {{ form.as_p }}
+      
+      <button type="submit" class="w-full bg-teal-800 text-white py-2 px-4 rounded-xl hover:bg-indigo-700 transition">
+        Save Expense
+      </button>
+    </form>
+
+    <div class="mt-4 text-center">
+      <a href="/" class="text-sm text-gray-600 hover:text-indigo-600">⬅ Back to Home</a>
+    </div>
+  </div>
+</body>
+</html> -->
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <title>Add Expense</title>
+</head>
+<body class="bg-[#c9c3b0] min-h-screen flex items-center justify-center">
+  
+  <div class="bg-white shadow-lg rounded-2xl p-8 w-full max-w-md">
+    <h2 class="text-2xl font-bold text-gray-800 mb-6 text-center">➕ Add Expense</h2>
+
+    <form method="POST" class="space-y-4">
+      {% csrf_token %}
+
+      <!-- Styling Django form fields -->
+      <div class="space-y-4">
+        {% for field in form %}
+          <div>
+            <label class="block text-gray-700 font-medium mb-1">{{ field.label }}</label>
+            {{ field }}
+            {% if field.errors %}
+              <p class="text-red-600 text-sm">{{ field.errors }}</p>
+            {% endif %}
+          </div>
+        {% endfor %}
+      </div>
+
+      <button type="submit" 
+        class="w-full bg-teal-800 text-white py-2 px-4 rounded-xl hover:bg-[#1f2019] transition">
+        Save Expense
+      </button>
+    </form>
+
+    <div class="mt-4 text-center">
+      <a href="/" class="text-sm text-[#2f3027] hover:text-indigo-600">⬅ Back to Home</a>
+    </div>
+  </div>
+
+</body>
+</html>

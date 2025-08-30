@@ -1,0 +1,106 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <title>My Expenses</title>
+</head>
+<body class="bg-[#c9c3b0]  
+      text-white
+      min-h-screen
+      flex
+      flex-col min-h-screen flex flex-col items-center py-10">
+
+  <div class="bg-teal-800 shadow-xl rounded-2xl p-8 w-full max-w-4xl">
+    <h2 class="text-3xl font-bold text-gray-800 mb-6 text-center">💰 My Expenses</h2>
+
+    {% if expenses %}
+      <table class="w-full table-auto border-collapse">
+        <thead>
+          <tr class="bg-teal-800 text-white">
+            <th class="py-3 px-4 text-left">Title</th>
+            <th class="py-3 px-4 text-left">Amount</th>
+            <th class="py-3 px-4 text-left">Category</th>
+            <th class="py-3 px-4 text-left">Date</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for expense in expenses %}
+          <tr class="border-b hover:bg-gray-100">
+            <td class="py-3 px-4">{{ expense.title }}</td>
+            <td class="py-3 px-4 font-semibold text-red-600">₹{{ expense.amount }}</td>
+            <td class="py-3 px-4">{{ expense.get_category_display }}</td>
+            <td class="py-3 px-4">{{ expense.date }}</td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    {% else %}
+      <p class="text-white-600 text-center">No expenses added yet! 🚀</p>
+    {% endif %}
+
+    <div class="mt-6 flex justify-between">
+      <a href="{% url 'add_expense' %}" class="bg-white text-black px-4 py-2 rounded-lg hover:bg-indigo-700 transition">
+        ➕ Add Expense
+      </a>
+      <a href="/" class="bg-white text-black px-4 py-2 rounded-lg hover:bg-gray-700 transition">
+        ⬅ Back to Home
+      </a>
+    </div>
+  </div>
+
+</body>
+</html> -->
+
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <title>My Expenses</title>
+</head>
+<body class="bg-[#c9c3b0] min-h-screen flex items-center justify-center">
+  <div class="bg-white shadow-lg rounded-2xl p-8 w-full max-w-2xl">
+    <h2 class="text-2xl font-bold text-gray-800 mb-6 text-center">💰 My Expenses</h2>
+
+    {% if expenses %}
+      <table class="w-full border border-gray-200 rounded-lg">
+        <thead>
+          <tr class="bg-teal-800 text-white">
+            <th class="py-2 px-4 text-left">Title</th>
+            <th class="py-2 px-4 text-left">Amount</th>
+            <th class="py-2 px-4 text-left">Date</th>
+            <th class="py-2 px-4 text-left">Category</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for expense in expenses %}
+            <tr class="border-t hover:bg-gray-100">
+              <td class="py-2 px-4 text-gray-800">{{ expense.title }}</td>
+              <td class="py-2 px-4 text-gray-800">₹{{ expense.amount }}</td>
+              <td class="py-2 px-4 text-gray-800">{{ expense.date }}</td>
+              <td class="py-2 px-4 text-gray-800">{{ expense.category }}</td>
+            </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    {% else %}
+      <p class="text-center text-gray-700">No expenses added yet.</p>
+    {% endif %}
+
+    <div class="mt-6 text-center">
+      <a href="{% url 'add_expense' %}" 
+         class="bg-teal-800 text-white py-2 px-4 rounded-xl hover:bg-[#1f2019] transition">
+        ➕ Add New Expense
+      </a>
+    </div>
+  </div>
+</body>
+</html>
