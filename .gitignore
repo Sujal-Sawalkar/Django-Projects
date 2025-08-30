@@ -1,0 +1,26 @@
+﻿__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.pdb
+*.egg-info/
+
+# Django
+db.sqlite3
+/staticfiles/
+/media/
+
+# Virtual environments
+.venv/
+env/
+venv/
+
+/vscode/
+/.idea/
+
+/OS files
+.DS_Store
+Thumbs.db
+
+# Temporary
+*.log
