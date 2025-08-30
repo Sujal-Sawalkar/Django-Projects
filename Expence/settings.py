@@ -45,6 +45,7 @@ INSTALLED_APPS = [
 ]
 
 MIDDLEWARE = [
+    
     'django.middleware.security.SecurityMiddleware',
     'whitenoise.middleware.WhiteNoiseMiddleware',  # add this
     'django.contrib.sessions.middleware.SessionMiddleware',
@@ -113,17 +114,6 @@ if DATABASE_URL:
             ssl_require=True
         )
     }
-else:
-    DATABASES = {
-        "default": {
-            "ENGINE": "django.db.backends.postgresql",
-            "NAME": "ET",
-            "USER": "sujal",
-            "PASSWORD": "Sujal@2005",
-            "HOST": "localhost",
-            "PORT": "5432",
-        }
-    }
 # if os.environ.get("RENDER"):  # When running on Render
 #     DATABASES = {
 #        "default": dj_database_url.config(conn_max_age=600, ssl_require=True)
@@ -184,5 +174,6 @@ STATIC_URL = 'static/'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+
 STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
 
