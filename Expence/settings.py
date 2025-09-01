@@ -17,7 +17,9 @@ SECRET_KEY = os.environ.get(
 )
 
 DEBUG = False
-ALLOWED_HOSTS = ["*"]
+ALLOWED_HOSTS = ["localhost",
+    "127.0.0.1",
+    "django-projects-production-8b83.up.railway.app",]
 
 # -------------------------
 # Installed Apps
