@@ -12,7 +12,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # Quick-start development settings
 SECRET_KEY = os.environ.get("SECRET_KEY", "fallback-secret-for-dev")
 DEBUG = False
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ["django-projects-production-e7fc.up.railway.app",
+    "127.0.0.1",
+    "localhost",]
 
 # Application definition
 INSTALLED_APPS = [
