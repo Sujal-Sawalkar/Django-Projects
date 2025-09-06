@@ -16,7 +16,7 @@ SECRET_KEY = os.environ.get(
     "django-projects-production-e7fc.up.railway.app"
 )
 
-DEBUG = False
+DEBUG = True
 ALLOWED_HOSTS = ["django-projects-production-8b83.up.railway.app", "127.0.0.1", "localhost",]
 
 # -------------------------
