@@ -13,7 +13,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # -------------------------
 SECRET_KEY = os.environ.get(
     "SECRET_KEY",
-    "django-insecure-uyjdth*@o+qv7j$bz18%*_ux!gv-w3pp@^uxd%-r)hv*pvcl%y"
+    "django-projects-production-e7fc.up.railway.app"
 )
 
 DEBUG = False
