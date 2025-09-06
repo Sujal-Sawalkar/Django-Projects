@@ -18,6 +18,10 @@ SECRET_KEY = os.environ.get(
 
 DEBUG = True
 ALLOWED_HOSTS = ["django-projects-production-e7fc.up.railway.app", "127.0.0.1", "localhost",]
+CSRF_TRUSTED_ORIGINS = [
+    "https://django-projects-production-e7fc.up.railway.app",
+    "https://www.yourdomain.com",  # if you add a custom domain later
+]
 
 # -------------------------
 # Installed Apps
