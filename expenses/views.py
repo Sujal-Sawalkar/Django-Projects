@@ -41,11 +41,24 @@
 
 
 
+# from django.shortcuts import render, redirect
+# from .forms import ExpenseForm
+# from .models import Expense
+# from django.contrib.auth.decorators import login_required, login
+# from django.contrib.auth import login as auth_login, logout as auth_logout
+# from django.db.models import Sum
+
+# from .forms import ExpenseForm, SignupForm, LoginForm
+# from .models import Expense
+
+
 from django.shortcuts import render, redirect
-from .forms import ExpenseForm
-from .models import Expense
+from django.contrib.auth import authenticate, login as auth_login, logout as auth_logout
 from django.contrib.auth.decorators import login_required
 from django.db.models import Sum
+
+from .forms import ExpenseForm, SignupForm, LoginForm
+from .models import Expense
 
 # ----------------- Add Expense -----------------
 @login_required
@@ -97,11 +110,28 @@ def summary(request):
     })
 
 # ----------------- Auth Pages -----------------
-def login(request):
-    return render(request, 'expenses/login.html')
+def sign_up(request):
+    if request.method == "POST":
+        form = SignupForm(request.POST)
+        if form.is_valid():
+            user = form.save()
+            auth_login(request, user)  # log in automatically after signup
+            return redirect('home')
+    else:
+        form = SignupForm()
+    return render(request, 'expenses/sign_up.html', {'form': form})
 
 def logout(request):
-    return render(request, 'expenses/logout.html')
+    auth_logout(request)
+    return redirect('login')
 
-def sign_up(request):
-    return render(request, 'expenses/sign_up.html')
+def login(request):
+    if request.method == "POST":
+        form = LoginForm(request, data=request.POST)
+        if form.is_valid():
+            user = form.get_user()
+            auth_login(request, user)
+            return redirect('home')
+    else:
+        form = LoginForm()
+    return render(request, 'expenses/login.html', {'form': form})
