@@ -16,7 +16,7 @@ SECRET_KEY = os.environ.get(
     "django-projects-production-e7fc.up.railway.app"
 )
 
-DEBUG = False
+DEBUG = True
 ALLOWED_HOSTS = ["django-projects-production-e7fc.up.railway.app", "127.0.0.1", "localhost","expense-tracker-m99e.onrender.com"]
 CSRF_TRUSTED_ORIGINS = [
     "https://expense-tracker-m99e.onrender.com",  # if you add a custom domain later
